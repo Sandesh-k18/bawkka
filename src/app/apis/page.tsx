@@ -1,8 +1,22 @@
-import { Code2, Cpu, Globe, Key, Lock, Zap, ArrowLeft, Trash2, MessageSquare, UserCheck, RefreshCw, Mail, ShieldCheck } from 'lucide-react';
+import { 
+    Code2, 
+    Cpu, 
+    Globe, 
+    Key, 
+    Lock, 
+    Zap, 
+    ArrowLeft, 
+    Trash2, 
+    MessageSquare, 
+    UserCheck, 
+    RefreshCw, 
+    Mail, 
+    ShieldAlert 
+} from 'lucide-react';
 import Link from 'next/link';
 
 export default function APIDocumentation() {
-    // Endpoints sorted alphabetically by path (starting with /api/accept-messages)
+    // Endpoints sorted alphabetically by path string
     const endpoints = [
         {
             method: "POST",
@@ -17,6 +31,13 @@ export default function APIDocumentation() {
             desc: "Update the account password while the user is logged in.",
             icon: Lock,
             color: "text-slate-600"
+        },
+        {
+            method: "DELETE",
+            path: "/api/auth/delete-account",
+            desc: "Permanently terminate account and wipe all associated protocol data.",
+            icon: ShieldAlert,
+            color: "text-rose-600"
         },
         {
             method: "POST",
@@ -139,10 +160,11 @@ export default function APIDocumentation() {
                                     </div>
                                     <div>
                                         <div className="flex items-center gap-3 mb-1">
-                                            <span className={`text-[10px] font-black px-2 py-0.5 rounded uppercase tracking-wider ${api.method === 'POST' ? 'bg-amber-100 text-amber-700' :
+                                            <span className={`text-[10px] font-black px-2 py-0.5 rounded uppercase tracking-wider ${
+                                                api.method === 'POST' ? 'bg-amber-100 text-amber-700' :
                                                 api.method === 'DELETE' ? 'bg-rose-100 text-rose-700' :
-                                                    'bg-indigo-100 text-indigo-700'
-                                                }`}>
+                                                'bg-indigo-100 text-indigo-700'
+                                            }`}>
                                                 {api.method}
                                             </span>
                                             <code className="text-sm font-bold text-slate-900">{api.path}</code>
