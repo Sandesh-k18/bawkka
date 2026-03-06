@@ -15,24 +15,11 @@ const ratelimit = new Ratelimit({
     prefix: "@upstash/ratelimit",
 });
 
-export default async function middleware(request: NextRequest) {
+export default async function proxy(request: NextRequest) {
     const url = request.nextUrl;
     const pathname = url.pathname;
 
-    // 1. PROXY LOGIC (New)
-    // This intercepts any request to /api/proxy and forwards it externally
-    if (pathname.startsWith('/api/proxy')) {
-        const targetPath = pathname.replace('/api/proxy', '');
-        const targetUrl = new URL(
-            targetPath + url.search, 
-            'https://your-external-api.com' // Replace with your actual target domain
-        );
-
-        // Rewrite preserves headers and the request body automatically
-        return NextResponse.rewrite(targetUrl);
-    }
-
-    // 2. HARD BYPASS: Static assets, Auth APIs, and Legal/Public pages
+    // 1. HARD BYPASS: Static assets, Auth APIs, and Legal/Public pages
     if (
         pathname.startsWith('/_next') ||
         pathname.includes('/api/auth') ||
@@ -40,16 +27,16 @@ export default async function middleware(request: NextRequest) {
         pathname.endsWith('.txt') ||
         pathname.endsWith('.webp') ||
         pathname.endsWith('.ico') ||
-        pathname === '/apis' ||           
-        pathname === '/terms' ||          
-        pathname === '/privacy-policy' || 
-        pathname === '/faq' ||            
-        pathname === '/about'             
+        pathname === '/apis' ||           // Allow public API docs
+        pathname === '/terms' ||          // Allow public Terms
+        pathname === '/privacy-policy' || // Allow public Privacy
+        pathname === '/faq' ||            // Allow public FAQ
+        pathname === '/about'             // Allow public About
     ) {
         return NextResponse.next();
     }
 
-    // 3. Ratelimiting Logic
+    // 2. Ratelimiting Logic
     const forwarded = request.headers.get("x-forwarded-for");
     const ip = forwarded ? forwarded.split(",")[0] : "127.0.0.1";
 
@@ -67,7 +54,7 @@ export default async function middleware(request: NextRequest) {
             });
         }
 
-        // 4. AUTHENTICATION LOGIC
+        // 3. AUTHENTICATION LOGIC
         const token = await getToken({ req: request, secret: process.env.NEXTAUTH_SECRET });
 
         const isAuthPage =
@@ -79,12 +66,12 @@ export default async function middleware(request: NextRequest) {
 
         const isForceLogout = pathname === "/sign-in" && url.searchParams.get("force") === "true";
 
-        // A. If Authenticated: Block from Auth pages
+        // A. If Authenticated: Block them from Auth pages
         if (token && isAuthPage && !isForceLogout) {
             return NextResponse.redirect(new URL("/dashboard", request.url));
         }
 
-        // B. If Unauthenticated: Block from Dashboard/Settings
+        // B. If Unauthenticated: Block them from Dashboard/Settings
         if (!token && (pathname.startsWith("/dashboard") || pathname.startsWith("/settings"))) {
             return NextResponse.redirect(new URL("/sign-in", request.url));
         }
@@ -99,14 +86,6 @@ export default async function middleware(request: NextRequest) {
 
 export const config = {
     matcher: [
-        /*
-         * Match all request paths except for the ones starting with:
-         * - api/auth (NextAuth)
-         * - _next/static (static files)
-         * - _next/image (image optimization files)
-         * - favicon.ico (favicon file)
-         * - webp, xml, txt (static assets)
-         */
         '/((?!api/auth|_next/static|_next/image|favicon.ico|.*\\.webp$|sitemap\\.xml$|robots\\.txt$).*)',
     ],
 };
