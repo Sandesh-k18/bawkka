@@ -48,7 +48,8 @@ export const Navbar = () => {
 
     useEffect(() => {
         const handleScroll = () => {
-            const offset = window.scrollY > 10;
+            // Increased threshold to 20px to prevent jitter on tiny movements
+            const offset = window.scrollY > 20;
             setIsScrolled(offset);
         };
         window.addEventListener('scroll', handleScroll, { passive: true });
@@ -57,16 +58,13 @@ export const Navbar = () => {
 
     useEffect(() => {
         const isNowDashboard = pathname.startsWith('/dashboard');
-
         if (status === "authenticated" && !user?.isVerified) {
             const crossedBoundary = isNowDashboard !== wasDashboardRef.current;
-
             if (crossedBoundary) {
                 hasDismissedRef.current = false;
                 wasDashboardRef.current = isNowDashboard;
                 setShowUnverifiedTip(false);
             }
-
             if (!hasDismissedRef.current) {
                 const timer = setTimeout(() => {
                     setShowUnverifiedTip(true);
@@ -93,10 +91,11 @@ export const Navbar = () => {
     };
 
     return (
-        <nav className={`sticky top-0 z-50 w-full transition-all duration-300 ${
+        // Added 'h-20' and fixed padding to prevent layout jumping
+        <nav className={`sticky top-0 z-50 w-full h-20 flex items-center transition-all duration-500 ease-in-out ${
             isScrolled 
-            ? "border-b border-slate-100 bg-white/80 backdrop-blur-xl py-0 shadow-sm" 
-            : "bg-transparent py-2"
+            ? "border-b border-slate-100 bg-white/80 backdrop-blur-xl shadow-sm" 
+            : "bg-transparent border-transparent"
         }`}>
             <div className="container mx-auto flex h-16 items-center justify-between px-6 relative">
 

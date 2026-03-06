@@ -1,17 +1,18 @@
-import { 
-    Code2, 
-    Cpu, 
-    Globe, 
-    Key, 
-    Lock, 
-    Zap, 
-    ArrowLeft, 
-    Trash2, 
-    MessageSquare, 
-    UserCheck, 
-    RefreshCw, 
-    Mail, 
-    ShieldAlert 
+import {
+    Code2,
+    Cpu,
+    Globe,
+    Key,
+    Lock,
+    Zap,
+    ArrowLeft,
+    Trash2,
+    MessageSquare,
+    UserCheck,
+    RefreshCw,
+    Mail,
+    ShieldAlert,
+    ShieldCheck
 } from 'lucide-react';
 import Link from 'next/link';
 
@@ -128,22 +129,22 @@ export default function APIDocumentation() {
                     </p>
                 </div>
 
-                {/* Auth Key Card */}
+                {/* Auth Key Card - Updated for Session-based Auth */}
                 <div className="mb-12 p-8 rounded-[2.5rem] bg-slate-950 text-white relative overflow-hidden shadow-2xl">
                     <div className="absolute top-0 right-0 w-64 h-64 bg-indigo-600/20 rounded-full blur-[80px]" />
                     <div className="relative z-10">
                         <div className="flex items-center gap-3 mb-4">
                             <div className="p-2 bg-indigo-500/20 rounded-lg">
-                                <Key className="w-5 h-5 text-indigo-400" />
+                                <ShieldCheck className="w-5 h-5 text-indigo-400" />
                             </div>
-                            <h3 className="text-lg font-bold">Authentication</h3>
+                            <h3 className="text-lg font-bold">Session Authentication</h3>
                         </div>
                         <p className="text-slate-400 text-sm leading-relaxed mb-6 max-w-md">
-                            All requests must be authenticated using a session token.
-                            You can manage your account security in the <Link href="/dashboard/settings" className="text-white underline underline-offset-4 font-bold">Dashboard Settings</Link>.
+                            This protocol uses secure <span className="text-white font-bold">HTTP-only Session Cookies</span>.
+                            Endpoints are accessible only when a valid user session is active.
                         </p>
                         <div className="bg-slate-900 border border-slate-800 rounded-xl p-4 font-mono text-xs text-indigo-300">
-                            Authorization: Bearer [your_session_token]
+                            Cookie: next-auth.session-token=[your_active_session]
                         </div>
                     </div>
                 </div>
@@ -160,11 +161,10 @@ export default function APIDocumentation() {
                                     </div>
                                     <div>
                                         <div className="flex items-center gap-3 mb-1">
-                                            <span className={`text-[10px] font-black px-2 py-0.5 rounded uppercase tracking-wider ${
-                                                api.method === 'POST' ? 'bg-amber-100 text-amber-700' :
-                                                api.method === 'DELETE' ? 'bg-rose-100 text-rose-700' :
-                                                'bg-indigo-100 text-indigo-700'
-                                            }`}>
+                                            <span className={`text-[10px] font-black px-2 py-0.5 rounded uppercase tracking-wider ${api.method === 'POST' ? 'bg-amber-100 text-amber-700' :
+                                                    api.method === 'DELETE' ? 'bg-rose-100 text-rose-700' :
+                                                        'bg-indigo-100 text-indigo-700'
+                                                }`}>
                                                 {api.method}
                                             </span>
                                             <code className="text-sm font-bold text-slate-900">{api.path}</code>
