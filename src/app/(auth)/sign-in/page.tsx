@@ -29,31 +29,44 @@ const SignInPage = () => {
   const onSubmit = async (data: z.infer<typeof signInSchema>) => {
     setIsSubmitting(true);
 
-    const result = await signIn("credentials", {
-      identifier: data.identifier,
-      password: data.password,
-      redirect: false
-    });
+    try {
+      const result = await signIn("credentials", {
+        identifier: data.identifier,
+        password: data.password,
+        redirect: false
+      });
 
-    if (result?.error) {
-      setIsSubmitting(false);
-      if (result.error === 'CredentialsSignin' || result.status === 401) {
-        toast.error("Login Failed", {
-          description: "Incorrect email/username or password",
-        });
-      } else {
-        toast.error("Error", {
-          description: result.error,
-        });
+      if (result?.error) {
+        setIsSubmitting(false);
+        if (result.error === 'CredentialsSignin' || result.status === 401) {
+          toast.error("Login Failed", {
+            description: "Incorrect email/username or password",
+          });
+        } else {
+          toast.error("Error", {
+            description: result.error,
+          });
+        }
+        return; // Stop execution on error
       }
-    }
 
-    if (result?.ok) {
-      toast.success(`Welcome ${data.identifier}!`);
-      router.replace("/dashboard");
+      if (result?.ok) {
+        toast.success(`Welcome ${data.identifier}!`);
+
+        // 1. Refresh the router to make sure the session is recognized by Middleware
+        router.refresh();
+
+        // 2. Add a small delay for production cookie propagation
+        setTimeout(() => {
+          router.replace("/dashboard");
+        }, 100);
+      }
+    } catch (error) {
+      console.error("Auth error:", error);
+      setIsSubmitting(false);
+      toast.error("An unexpected error occurred");
     }
   };
-
   return (
     <div className="min-h-screen flex items-center justify-center bg-slate-50 px-4">
       <div className="w-full max-w-md p-8 space-y-8 bg-white rounded-xl border border-slate-200 shadow-xl">
@@ -91,8 +104,8 @@ const SignInPage = () => {
                 <FormItem>
                   <div className="flex items-center justify-between">
                     <FormLabel className="text-slate-700">Password</FormLabel>
-                    <Link 
-                      href="/forgot-password" 
+                    <Link
+                      href="/forgot-password"
                       className="text-sm font-semibold text-primary hover:underline underline-offset-4"
                     >
                       Forgot password?
