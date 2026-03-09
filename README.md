@@ -15,20 +15,30 @@
 
 ---
 
-## 🏗 Key Features
+## 🏗 User Workflow &  Key Features
 
-### 1. Anonymous "Whispers"
+### 1. The Onboarding Pipeline
+
+To maintain a high-trust environment, backKA uses a strict multi-stage verification flow:
+
+Registration: Users claim a unique handle via the [Sign Up](https://backka.sandeshkharel.com.np/sign-up) page.
+
+OTP Verification: A 6-digit code is dispatched via Resend. Users must verify on the Verify Account screen.
+
+The "Re-signup" Constraint: Currently, the platform does not feature "Resend OTP." If the verification session is lost or expired, users must re-register the handle to trigger a new code.
+
+### 2. Anonymous "Whispers"
 
 Allows users to receive messages without the sender revealing their identity. The core logic ensures a "fire-and-forget" flow to maintain high privacy.
 
-### 2. Verified Ownership Model
+### 3. Verified Ownership Model
 
 A unique security state where usernames are temporary until verified via **6-digit OTP**.
 
 * **Unverified:** Open/Guest state. Data is subject to erasure if a legitimate owner claims the handle.
 * **Verified:** Persistent state. Locks the profile and associated "intel" to the user's identity.
 
-### 3. Security-First Architecture
+### 4. Security-First Architecture
 
 * **Storage:** Data persistence on MongoDB Atlas with WiredTiger encryption.
 * **Anonymity:** Minimal data collection; we prioritize technical metadata over PII (Personally Identifiable Information).
