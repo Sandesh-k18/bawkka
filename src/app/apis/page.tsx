@@ -188,7 +188,7 @@ export default function APIDocumentation() {
                     </div>
                     <div className="flex items-center gap-2 text-slate-400">
                         <Globe className="w-4 h-4" />
-                        <span className="text-[10px] font-bold uppercase tracking-widest">CORS: Enabled</span>
+                        <span className="text-[10px] font-bold uppercase tracking-widest">CORS: Not Enabled</span>
                     </div>
                 </div>
             </div>

@@ -5,9 +5,9 @@
 
 ## 🛠 Technical Stack
 
-* **Framework:** [Next.js 15 (App Router)](https://nextjs.org/)
+* **Framework:** [Next.js 16.1.4 (App Router)](https://nextjs.org/)
 * **Language:** TypeScript
-* **Authentication:** [NextAuth.js](https://next-auth.js.org/) (OAuth & Credentials)
+* **Authentication:** [NextAuth.js](https://next-auth.js.org/) (Credentials only for now)
 * **Database:** [MongoDB Atlas](https://www.mongodb.com/atlas)
 * **Security:** AES-256 (At-Rest), TLS 1.2+ (In-Transit)
 * **UI/UX:** Tailwind CSS, Framer Motion, Lucide React, Shadcn/UI
@@ -44,9 +44,12 @@ Create a `.env.local` file in the root directory and add the following:
 ```env
 MONGODB_URI=your_mongodb_uri
 NEXTAUTH_SECRET=your_secret
-EMAIL_SERVER=your_smtp_config
-NEXT_PUBLIC_BASE_URL=http://localhost:3000
-
+RESEND_API_KEY=your_smtp_config
+NEXTAUTH_URL=http://localhost:3000
+NEXTAUTH_SECRET=secret__yours
+HUGGINGFACE_API_KEY=hf_api__yours
+UPSTASH_REDIS_REST_URL=rate_limit__yours
+UPSTASH_REDIS_REST_TOKEN=rate_limit__yours
 ```
 
 ### Run Locally
@@ -65,7 +68,7 @@ The project is optimized for **Vercel**. Every push to `main` triggers an automa
 
 ## 📂 Project Structure
 
-* `/app`: Next.js App Router (Pages, Layouts, and API Routes).
+* `src/app`: Next.js App Router (Pages, Layouts, and API Routes).
 * `/src/components`: UI components (Shadcn) and Page-specific logic.
 * `/src/context`: Global state providers (Auth, Theme).
 * `/public`: Static assets including `backka.webp` and OG images.
@@ -76,4 +79,4 @@ The project is optimized for **Vercel**. Every push to `main` triggers an automa
 
 The app uses a dynamic **Metadata API** to generate unique Open Graph (OG) tags for user profiles, facilitating professional link previews on social platforms.
 
-> **Note:** Developed by [Sandesh](https://github.com/sandesh-k18). Driven by transparency and the open-source spirit.
+> **Note:** Developed by [Not Anonymous](https://github.com/sandesh-k18). Driven by transparency and the open-source spirit.
