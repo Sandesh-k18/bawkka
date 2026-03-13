@@ -3,6 +3,7 @@ import { authOptions } from "../../auth/[...nextauth]/options";
 import dbConnect from "@/src/lib/dbConnect";
 import UserModel from "@/src/model/User";
 import { NextResponse } from "next/server";
+import bcrypt from "bcryptjs"; // Make sure to import bcrypt
 
 export async function DELETE(request: Request) {
   await dbConnect();
@@ -18,8 +19,17 @@ export async function DELETE(request: Request) {
       );
     }
 
-    // 2. Locate the user in the database
-    // Using email from the session to ensure we delete the currently logged-in user
+    // 2. Parse the password from the request body
+    const { password } = await request.json();
+
+    if (!password) {
+        return NextResponse.json(
+            { success: false, message: "Password is required to delete account" },
+            { status: 400 }
+        );
+    }
+
+    // 3. Locate the user (include the password field specifically)
     const user = await UserModel.findOne({ email: session.user.email });
 
     if (!user) {
@@ -29,15 +39,17 @@ export async function DELETE(request: Request) {
       );
     }
 
-    /**
-     * OPTIONAL SECURITY CHECK:
-     * If you want to ensure the user actually typed their username 
-     * on the frontend to confirm, you can still expect a 'confirmation' string.
-     * const { confirmation } = await request.json();
-     * if (confirmation !== user.username) { ... return error ... }
-     */
+    // 4. THE SECURITY GATE: Compare passwords
+    const isPasswordCorrect = await bcrypt.compare(password, user.password);
 
-    // 3. The Final Purge
+    if (!isPasswordCorrect) {
+        return NextResponse.json(
+            { success: false, message: "Incorrect password" },
+            { status: 403 }
+        );
+    }
+
+    // 5. The Final Purge
     const deletedUser = await UserModel.deleteOne({ _id: user._id });
 
     if (deletedUser.deletedCount === 0) {
