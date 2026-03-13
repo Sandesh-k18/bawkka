@@ -49,9 +49,9 @@ export const metadata: Metadata = {
 
   // 6. Favicons & Icons
   icons: {
-    icon: "/bawkka.webp",
+    icon: { url: "/bawkka.png", type: "image/webp" },
     shortcut: "/bawkka.webp",
-    apple: "/bawkka.webp", // .webp might not support capital letter naming for the assests.
+    apple: "/bawkka.png", // .webp might not support capital letter naming for the assests.
   },
 
   // 7. Verification
