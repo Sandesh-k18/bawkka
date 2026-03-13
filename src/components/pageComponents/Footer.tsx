@@ -67,7 +67,7 @@ export const Footer = () => {
             © {new Date().getFullYear()} bawkKA. All rights reserved.
           </p>
           <div className="flex items-center gap-2 text-[11px] font-bold text-slate-500 uppercase tracking-widest">
-            Developed with
+            Build with
             <Heart className="h-3 w-3 text-rose-500 fill-rose-500" />
             by <span className="text-slate-200 uppercase">Not Anonymous</span>
           </div>
