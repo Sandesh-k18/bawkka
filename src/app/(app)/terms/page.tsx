@@ -6,7 +6,7 @@ export default function TermsOfService() {
         {
             icon: AlertCircle,
             title: "Prohibited Content",
-            content: "You may not use backKA to transmit hate speech, explicit threats of violence, or targeted harassment. While we value anonymity, we do not protect illegal activities."
+            content: "You may not use bawkKA to transmit hate speech, explicit threats of violence, or targeted harassment. While we value anonymity, we do not protect illegal activities."
         },
         {
             icon: ZapOff,
@@ -21,7 +21,7 @@ export default function TermsOfService() {
         {
             icon: Scale,
             title: "User Responsibility",
-            content: "You are solely responsible for the 'whisper links' you share. backKA is a conduit for communication and does not take ownership of user-generated content."
+            content: "You are solely responsible for the 'whisper links' you share. bawkKA is a conduit for communication and does not take ownership of user-generated content."
         }
     ];
 
@@ -38,7 +38,7 @@ export default function TermsOfService() {
                         Platform Terms
                     </h1>
                     <p className="text-slate-500 text-lg font-medium">
-                        The rules of engagement for backKA.
+                        The rules of engagement for bawkKA.
                     </p>
                 </div>
 
@@ -68,7 +68,7 @@ export default function TermsOfService() {
                         Legal Disclaimer
                     </h4>
                     <p className="text-sm text-slate-600 leading-relaxed font-medium">
-                        The service is provided "as is" and "as available" without any warranties. backKA does not guarantee that the service will be uninterrupted or error-free. By using this platform, you agree to indemnify backKA against any claims resulting from your use of the service.
+                        The service is provided "as is" and "as available" without any warranties. bawkKA does not guarantee that the service will be uninterrupted or error-free. By using this platform, you agree to indemnify bawkKA against any claims resulting from your use of the service.
                     </p>
                 </div>
 
@@ -78,7 +78,7 @@ export default function TermsOfService() {
                     <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-6">
                         <div className="text-center md:text-left">
                             <h3 className="text-xl font-bold mb-1">Acceptance of Terms</h3>
-                            <p className="text-slate-400 text-sm font-medium">By using backKA, you agree to follow these protocols.</p>
+                            <p className="text-slate-400 text-sm font-medium">By using bawkKA, you agree to follow these protocols.</p>
                         </div>
                         <Link href="/sign-up">
                             <button className="bg-white text-slate-950 px-8 py-3 rounded-xl font-black text-[10px] uppercase tracking-widest hover:bg-slate-100 transition-colors">

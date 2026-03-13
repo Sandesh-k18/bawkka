@@ -27,7 +27,7 @@ export default function ResetPasswordEmail({ username, resetLink }: ResetPasswor
           fontStyle="normal"
         />
       </Head>
-      <Preview>Reset your backKA password</Preview>
+      <Preview>Reset your bawkKA password</Preview>
       <Section>
         <Row>
           <Heading as="h2">Hello {username},</Heading>

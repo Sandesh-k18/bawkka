@@ -114,7 +114,7 @@ export const Navbar = () => {
                                         <div className="flex items-center gap-2 mb-8">
                                             <div className="overflow-hidden flex items-center justify-center w-10 h-10">
                                                 <Image
-                                                    src="/backka.webp"
+                                                    src="/bawkKA.webp"
                                                     alt="Logo"
                                                     width={80}
                                                     height={80}
@@ -122,7 +122,7 @@ export const Navbar = () => {
                                                 />
                                             </div>
                                             <span className="text-xl font-black tracking-tighter text-slate-950">
-                                                back<span className="text-indigo-600">KA</span>
+                                            bawk<span className="text-indigo-600">KA</span>
                                             </span>
                                         </div>
                                         <VisuallyHidden.Root>
@@ -143,7 +143,7 @@ export const Navbar = () => {
                     <Link href="/" className="flex items-center gap-2 transition-transform hover:scale-[1.02] active:scale-95">
                         <div className="overflow-hidden flex items-center justify-center w-10 h-10 bg-white rounded-xl shadow-sm border border-slate-100">
                             <Image
-                                src="/backka.webp"
+                                src="/bawkka.webp"
                                 alt="Logo"
                                 width={80}
                                 height={80}
@@ -152,7 +152,7 @@ export const Navbar = () => {
                             />
                         </div>
                         <span className="text-xl font-black tracking-tighter text-slate-950">
-                            back<span className="text-indigo-600">KA</span>
+                            bawk<span className="text-indigo-600">KA</span>
                         </span>
                     </Link>
                 </div>
@@ -200,7 +200,7 @@ export const Navbar = () => {
                                                 <div className="flex items-start gap-3 p-4 rounded-2xl bg-white/5 border border-white/10">
                                                     <div className="shrink-0 w-8 h-8 flex items-center justify-center bg-white rounded-xl">
                                                         <Image
-                                                            src="/backka.webp"
+                                                            src="/bawkKA.webp"
                                                             alt="Logo"
                                                             width={40}
                                                             height={40}

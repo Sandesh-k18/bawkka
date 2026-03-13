@@ -13,8 +13,8 @@ export default function NotFound() {
                 
                 <div className="relative bg-white p-8 rounded-[3rem] shadow-[0_30px_60px_-15px_rgba(0,0,0,0.1)] border border-slate-100 transition-transform hover:scale-[1.02] duration-500">
                     <Image 
-                        src="/backka.webp" 
-                        alt="backKA Owl" 
+                        src="/bawkka.webp" 
+                        alt="bawkKA Owl" 
                         width={160} 
                         height={160} 
                         className="w-28 h-28 md:w-36 md:h-36 object-contain opacity-90"

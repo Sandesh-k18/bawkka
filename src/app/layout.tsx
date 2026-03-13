@@ -8,30 +8,30 @@ import Footer from "../components/pageComponents/Footer";
 
 export const metadata: Metadata = {
   // 1. Metadata Base (Fixes the warning)
-  metadataBase: new URL("https://backka.sandeshkharel.com.np"),
+  metadataBase: new URL("https://bawkKA.sandeshkharel.com.np"),
 
   // 2. Titles
   title: {
-    default: "backKA | Anonymous Whispers & Feedback",
-    template: "%s | backKA"
+    default: "bawkKA | Anonymous Whispers & Feedback",
+    template: "%s | bawkKA"
   },
 
   // 3. Description & Keywords
-  description: "Send and receive anonymous messages securely. Share your link, hear the truth, and keep the conversation safe with backKA.",
-  keywords: ["anonymous messages", "whisper app", "secret feedback", "backKA", "anonymous chat"],
+  description: "Send and receive anonymous messages securely. Share your link, hear the truth, and keep the conversation safe with bawkKA.",
+  keywords: ["anonymous messages", "whisper app", "secret feedback", "bawkKA", "anonymous chat"],
 
   // 4. Open Graph
   openGraph: {
-    title: "backKA | Anonymous Whispers",
+    title: "bawkKA | Anonymous Whispers",
     description: "What do people really think? Send me an anonymous whisper!",
-    url: "https://backka.sandeshkharel.com.np",
-    siteName: "backKA",
+    url: "https://bawkKA.sandeshkharel.com.np",
+    siteName: "bawkKA",
     images: [
       {
         url: "/og-image.webp", 
         width: 1200,
         height: 630,
-        alt: "backKA Anonymous Messaging",
+        alt: "bawkKA Anonymous Messaging",
       },
     ],
     locale: "en_US",
@@ -41,17 +41,17 @@ export const metadata: Metadata = {
   // 5. Twitter Card
   twitter: {
     card: "summary_large_image",
-    title: "backKA",
+    title: "bawkKA",
     description: "Send anonymous whispers safely. True feedback platform.",
-    images: ["/og-image.webp"],
+    images: ["/og-image.png"],
     creator: "@Khar3lSand3sh",
   },
 
   // 6. Favicons & Icons
   icons: {
-    icon: "/backka.webp",
-    shortcut: "/backka.webp",
-    apple: "/backka.webp",
+    icon: "/bawkka.webp",
+    shortcut: "/bawkka.webp",
+    apple: "/bawkka.webp", // .webp might not support capital letter naming for the assests.
   },
 
   // 7. Verification

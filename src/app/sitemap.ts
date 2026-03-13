@@ -6,7 +6,7 @@ import UserModel from '@/src/model/User';
 export const revalidate = 3600; // Cache for 1 hour
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = 'https://backka.sandeshkharel.com.np';
+  const baseUrl = 'https://bawkka.sandeshkharel.com.np';
   const buildDate = new Date().toISOString();
 
   const staticPaths = [
@@ -17,8 +17,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { path: '/privacy-policy', priority: 0.3, freq: 'monthly' },
     { path: '/sign-in', priority: 0.5, freq: 'yearly' },
     { path: '/sign-up', priority: 0.6, freq: 'yearly' },
-    { path: '/forgot-password', priority: 0.3, freq: 'yearly' },
-    { path: '/reset-password', priority: 0.3, freq: 'yearly' },
     { path: '/apis', priority: 0.4, freq: 'monthly' },
   ];
 

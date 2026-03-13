@@ -68,7 +68,7 @@ export default function PrivacyPolicy() {
                         International Compliance
                     </h4>
                     <p className="text-sm text-slate-500 leading-relaxed font-medium">
-                        While backKA is a global platform, we align our data processing with GDPR and CCPA principles. You have the right to request a full export of your data or immediate deletion of your profile at any time through your dashboard settings.
+                        While bawkKA is a global platform, we align our data processing with GDPR and CCPA principles. You have the right to request a full export of your data or immediate deletion of your profile at any time through your dashboard settings.
                     </p>
                 </div>
 

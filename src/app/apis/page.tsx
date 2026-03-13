@@ -85,7 +85,7 @@ export default function APIDocumentation() {
         {
             method: "POST",
             path: "/api/sign-up",
-            desc: "Initialize a new user account on the backKA protocol.",
+            desc: "Initialize a new user account on the bawkKA protocol.",
             icon: Key,
             color: "text-indigo-600"
         },
@@ -125,7 +125,7 @@ export default function APIDocumentation() {
                         Developer Interface
                     </h1>
                     <p className="text-slate-500 text-lg font-medium">
-                        Endpoints for the backKA anonymity protocol.
+                        Endpoints for the bawkKA anonymity protocol.
                     </p>
                 </div>
 
@@ -188,7 +188,7 @@ export default function APIDocumentation() {
                     </div>
                     <div className="flex items-center gap-2 text-slate-400">
                         <Globe className="w-4 h-4" />
-                        <span className="text-[10px] font-bold uppercase tracking-widest">CORS: Not Enabled</span>
+                        <span className="text-[10px] font-bold uppercase tracking-widest">AUTH: [...nextauth]</span>
                     </div>
                 </div>
             </div>

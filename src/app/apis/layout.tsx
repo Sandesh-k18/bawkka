@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
     title: "Developer Interface & Documentation",
-    description: "Access the backKA API documentation. Integrate anonymous messaging, profile fetching, and security protocols into your own applications.",
+    description: "Access the bawkKA API documentation. Integrate anonymous messaging, profile fetching, and security protocols into your own applications.",
 };
 
 export default function APILayout({

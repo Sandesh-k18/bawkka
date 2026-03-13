@@ -12,7 +12,7 @@ export default function FAQPage() {
             answer: "Unverified accounts are temporary. If a legitimate owner verifies that username, all existing whispers and data on the unverified profile are permanently erased to ensure security."
         },
         {
-            question: "Is my data secure with backKA?",
+            question: "Is my data secure with bawkKA?",
             answer: "Absolutely. We use MongoDB Atlas with AES-256 encryption at rest and TLS 1.2+ for data in transit. We maintain a strict minimal-data policy to keep your whispers private."
         },
         {
@@ -32,7 +32,7 @@ export default function FAQPage() {
             answer: "Our free tier allows for unlimited received messages. However, we implement rate limiting on how fast messages can be sent to a single profile to prevent spam."
         },
         {
-            question: "Can I use backKA for free?",
+            question: "Can I use bawkKA for free?",
             answer: "Yes! We offer a generous free tier for individuals. Professional plans with advanced analytics and custom branding will be available soon."
         }
     ];
@@ -50,7 +50,7 @@ export default function FAQPage() {
                         Frequently Asked Questions
                     </h1>
                     <p className="text-slate-500 text-lg font-medium">
-                        Everything you need to know about backKA whispers.
+                        Everything you need to know about bawkKA whispers.
                     </p>
                 </div>
 

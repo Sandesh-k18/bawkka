@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
     title: "Privacy Protocol",
-    description: "Learn how backKA handles your data. Our privacy-first architecture ensures your whispers remain anonymous and your metadata stays private.",
+    description: "Learn how bawkKA handles your data. Our privacy-first architecture ensures your whispers remain anonymous and your metadata stays private.",
 };
 
 export default function PrivacyLayout({

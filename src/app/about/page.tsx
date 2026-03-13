@@ -38,7 +38,7 @@ export default function AboutPage() {
                         honesty and security.
                     </h1>
                     <p className="text-lg md:text-xl text-slate-500 leading-relaxed font-medium">
-                        backKA was built on the belief that the most valuable feedback is often the hardest to give. We provide the infrastructure for transparency, powered by open-source AI.
+                        bawkKA was built on the belief that the most valuable feedback is often the hardest to give. We provide the infrastructure for transparency, powered by open-source AI.
                     </p>
                 </div>
 

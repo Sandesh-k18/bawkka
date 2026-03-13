@@ -17,9 +17,9 @@ export async function sendResetPasswordEmail(
 
     // 2. Capture the actual response from Resend
     const { data, error } = await resend.emails.send({
-      from: 'backKA <noreply@backka.sandeshkharel.com.np>', 
+      from: 'bawkKA <noreply@bawkka.sandeshkharel.com.np>', 
       to: email,
-      subject: 'backKA | Reset Your Password',
+      subject: 'bawkKA | Reset Your Password',
       react: ResetPasswordEmail({ username, resetLink }),
     });
 
