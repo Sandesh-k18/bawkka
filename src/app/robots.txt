@@ -10,13 +10,16 @@ Allow: /apis
 Allow: /terms
 Allow: /privacy-policy
 Allow: /u/
+Allow: /sign-up
+Allow: /sign-in
 
 # Block private or sensitive utility paths
 Disallow: /api/
 Disallow: /dashboard/
-Disallow: /settings
 Disallow: /reset-password
 Disallow: /forgot-password
+Disallow: /verify/
+
 
 # Block AI scrapers from crawling user profiles
 User-agent: GPTBot
